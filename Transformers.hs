@@ -1,3 +1,5 @@
+-- Examples from http://www.grabmueller.de/martin/www/pub/Transformers.pdf
+
 module Transformers where
 
 import Control.Monad.Identity (Identity, runIdentity)
@@ -48,7 +50,7 @@ runEval1 = runIdentity
 
 eval1                   :: Env -> Exp -> Eval1 Value
 eval1 env (Lit i)      = return $ IntVal i
-eval1 env (Var n)      = return $ fromJust (Map.lookup n env)
+eval1 env (Var n)      = maybe (fail ("Undefined variable: " ++ n)) return $ Map.lookup n env
 eval1 env (Plus e1 e2) = do IntVal i1 <- eval1 env e1
                             IntVal i2 <- eval1 env e2
                             return $ IntVal (i1 + i2)
