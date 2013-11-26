@@ -1,4 +1,9 @@
-module Main where
+module Oracle
+    (
+      OracleEnv(..)
+    , oracle
+    , runOracle
+) where
 
 import Control.Monad.Identity (Identity, runIdentity)
 import Control.Monad.Reader (ReaderT, ask, runReaderT)
@@ -22,8 +27,3 @@ oracle bs = do
 
 runOracle         :: Oracle a -> OracleEnv -> a
 runOracle ocl env = runIdentity (runReaderT ocl env)
-
-main :: IO ()
-main = do
-  let env = OracleEnv "YELLOW SUBMARINE" "AAAAAA" "BBBBBB"
-  putStrLn $ runOracle (oracle "Not yet") env
