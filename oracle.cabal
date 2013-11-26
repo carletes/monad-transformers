@@ -1,0 +1,55 @@
+name:
+  oracle
+version:
+  0.1.0
+synopsis:
+  An encryption oracle.
+description:
+  An encryption oracle.
+author:
+  Carlos Valiente
+maintainer:
+  Carlos Valiente <carlos@pepelabs.net>
+category:
+  Crypto
+license:
+  BSD3
+license-file:
+  LICENSE
+stability:
+  Experimental
+build-type:
+  Simple
+cabal-version:
+  >= 1.18
+
+source-repository head
+  type:
+    git
+  location:
+    git@code.pepelabs.net:carlos/monad-transformers.git
+  subdir:
+    monad-transformers
+
+library
+  build-depends:
+    base == 4.6.*,
+    mtl == 2.1.*
+  exposed-modules:
+    Oracle
+  default-language:
+    Haskell2010
+  ghc-options:
+    -Wall
+
+executable oracle
+  build-depends:
+    base == 4.6.*,
+    mtl == 2.1.*,
+    oracle
+  main-is:
+    oracle.hs
+  default-language:
+    Haskell2010
+  ghc-options:
+    -Wall
