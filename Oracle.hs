@@ -1,6 +1,6 @@
 module Oracle
     (
-      OracleEnv(..)
+      mkOracleEnv
     , oracle
     , runOracle
 ) where
@@ -14,6 +14,9 @@ data OracleEnv = OracleEnv {
       key :: Key
     , suffix :: String
 }
+
+mkOracleEnv :: OracleEnv
+mkOracleEnv = OracleEnv "YELLOW SUBMARINE" "AAAAAA"
 
 type Oracle a = ReaderT OracleEnv Identity a
 

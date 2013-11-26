@@ -2,11 +2,11 @@ module Main where
 
 import System.Exit (exitWith, ExitCode(..))
 
-import Oracle (OracleEnv(..), oracle, runOracle)
+import Oracle (mkOracleEnv, oracle, runOracle)
 
 main :: IO ()
 main = do
-  let env = OracleEnv "YELLOW SUBMARINE" "AAAAAA"
+  let env = mkOracleEnv
       loop :: IO ()
       loop = do
          bs <- getLine
