@@ -6,8 +6,8 @@ import Oracle (mkOracleEnv, oracle, runOracle)
 
 main :: IO ()
 main = do
-  let env = mkOracleEnv
-      loop :: IO ()
+  env <- mkOracleEnv
+  let loop :: IO ()
       loop = do
          bs <- getLine
          if bs == ""

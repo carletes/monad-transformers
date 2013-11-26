@@ -34,7 +34,9 @@ source-repository head
 library
   build-depends:
     base == 4.6.*,
-    mtl == 2.1.*
+    bytestring == 0.10.*,
+    mtl == 2.1.*,
+    random == 1.0.*
   exposed-modules:
     Oracle
   default-language:
@@ -45,7 +47,9 @@ library
 executable oracle
   build-depends:
     base == 4.6.*,
+    bytestring == 0.10.*,
     mtl == 2.1.*,
+    random == 1.0.*,
     oracle
   main-is:
     oracle.hs
